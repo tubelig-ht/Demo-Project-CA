@@ -1,0 +1,47 @@
+package com.tourist.info.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tourist.info.model.Tourist;
+import com.tourist.info.service.TouristService;
+
+@RestController
+@RequestMapping("/tourists")
+public class TouristController {
+	@Autowired
+	TouristService touristService;
+	
+	@GetMapping()
+	public ResponseEntity<List<Tourist>> getAllTourists(){
+		List<Tourist>touristList= touristService.getAllTourists();
+		return new ResponseEntity<>(touristList,HttpStatus.OK);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Tourist> getTourist(@PathVariable int id) {
+		Tourist t= touristService.getTouristById(id);
+		return ResponseEntity<>(t,HttpStatus.OK);
+	}
+	
+	@PostMapping()
+	public void addTourist(@RequestBody Tourist tourist) {
+		touristService.addTourist(tourist);
+	}
+	
+	@PutMapping("/{id}")
+	public void updateTourist(@PathVariable int id,@RequestBody Tourist tourist) {
+		touristService.updateTourist(id, tourist);
+	}
+
+}

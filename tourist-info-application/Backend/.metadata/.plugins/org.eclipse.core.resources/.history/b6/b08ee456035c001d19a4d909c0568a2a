@@ -1,0 +1,11 @@
+package com.tourist.info.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.tourist.info.model.Tourist;
+
+public interface TouristRepository extends JpaRepository<Tourist,Integer>{
+	public List<Tourist> findByOrderByFirstNameDsc();
+}

@@ -1,0 +1,34 @@
+<h1>Register Tourist</h1>
+<div class="container col-md-6 offset-md-4">
+    <form (ngSubmit)="registerTourist()">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="tourist.firstName" required>
+            
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="tourist.lastName" required>
+        </div>
+        <div class="form-group">
+            <label>Select Your Gender</label><br>
+            <input type="radio" value="Male" name="gender" class="radioBtn" [(ngModel)]="tourist.gender" required >
+            <span>Male</span><br>
+            <input type="radio" value="Female" name="gender" class="radioBtn" [(ngModel)]="tourist.gender" required >
+            <span>Female</span>
+        </div>
+        <div class="form-group">
+            <label for="">Age</label>
+            <input type="number" id="age" name="age" class="form-control" [(ngModel)]="tourist.age" required>
+        </div>
+        <div class="form-group">
+            <label for="">Place</label>
+            <input type="text" id="place" name="place" class="form-control" [(ngModel)]="tourist.fromPlace" required>
+        </div>
+        <div class="form-group">
+            <label for="">Number of Days</label>
+            <input type="number" id="days" name="days" class="form-control" [(ngModel)]="tourist.numberOfDays" required>
+        </div>
+        <button type="submit" class="btn btn-info" style="padding-left:170px; padding-right: 170px;">Register</button>
+    </form>
+</div>

@@ -1,0 +1,9 @@
+package com.tourist.info.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.tourist.info.model.Tourist;
+
+public interface TouristRepository extends JpaRepository<Tourist,Integer>{
+
+}

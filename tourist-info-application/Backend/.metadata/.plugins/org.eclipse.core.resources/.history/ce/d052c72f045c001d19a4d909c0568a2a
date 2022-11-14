@@ -1,0 +1,38 @@
+package com.tourist.info.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tourist.info.model.Tourist;
+import com.tourist.info.repository.TouristRepository;
+@Service
+public class TouristServiceImpl implements TouristService{
+	
+	@Autowired
+	TouristRepository touristRepository;
+	
+	@Override
+	public List<Tourist> getAllTourists() {
+		return touristRepository.findByOrderByFirstNameDesc();
+	}
+
+	@Override
+	public Tourist getTouristById(int id) {
+		return touristRepository.getById(id);
+	}
+
+	@Override
+	public void addTourist(Tourist tourist) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTourist(int id, Tourist tourist) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

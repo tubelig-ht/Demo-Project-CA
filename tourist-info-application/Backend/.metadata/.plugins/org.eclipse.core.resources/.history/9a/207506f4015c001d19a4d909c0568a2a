@@ -1,0 +1,5 @@
+package com.tourist.info.repository;
+
+public interface TouristRepository {
+
+}

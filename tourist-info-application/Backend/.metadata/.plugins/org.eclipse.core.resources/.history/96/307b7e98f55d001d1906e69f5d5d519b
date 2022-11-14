@@ -1,0 +1,7 @@
+server.port= 8999
+
+spring.application.name= api-gateway
+eureka.instance.hostname= localhost
+spring.cloud.gateway.routes[0].id= tourist-service
+spring.cloud.gateway.routes[0].uri= http://localhost:4001/
+spring.cloud.gateway.routes[0].predicates= Path=/api/v1/tourist/**
